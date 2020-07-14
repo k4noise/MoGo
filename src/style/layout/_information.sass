@@ -1,0 +1,48 @@
+.information 
+  +auto-grid-columns($information-column-width)
+  margin-bottom: $large-indent-size
+  min-height: $information-height
+  &__accordeon	
+    &-details
+      margin-bottom: $tiny-indent-size
+      border: $thin-border-width solid $light-grey-border-color
+    &-title
+      display: grid
+      grid-template-columns: $normal-indent-size $big-indent-size auto
+      grid-gap: $small-grid-gap
+      align-items: center
+      padding: $small-indent-size
+      +upperCaseFont('Montserrat Bold', $small-header-size)
+      &-down::after
+        content: url(../img/arrow2.png)
+        margin-left: $information-title-button-margin-left
+      &-up
+        border-bottom: $thin-border-width solid $light-grey-border-color
+        &::after
+          content: url(../img/arrow.png)
+          margin-left: $information-title-button-margin-left
+    &-text
+      display: none
+      max-height: $statistics-accordeon-text-height
+      margin-right: $small-indent-size
+      margin-bottom: $normal-indent-size
+      padding: $small-indent-size $normal-indent-size
+      font: $small-text-size 'Roboto Light', sans-serif
+      line-height: $medium-line-height
+      color: $gray-text-color
+      scrollbar-color: $mint-background-color $light-grey-background-color
+      scrollbar-width: thin
+      overflow-y: auto
+      &-open
+        display: block
+        animation-name: accordeon
+        animation-duration: $transition-fast-time
+      &::-webkit-scrollbar
+        width: $information-scrollbar-width
+        border-radius: $information-scrollbar-width
+        background-color: $light-grey-background-color
+      &::-webkit-scrollbar-thumb
+        border-radius: $information-scrollbar-width
+        background: $mint-background-color
+      &::-webkit-scrollbar-button
+        background-color: $light-background-color

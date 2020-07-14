@@ -1,0 +1,12 @@
+.companies 
+  background: $light-grey-background-color
+  &__wrapper
+    position: relative
+    top: $companies-wrapper-top
+    @extend %wrapper
+    +flex(space-between, center)
+    &-logo
+      padding: $medium-indent-size $normal-indent-size
+      transition: $transition-fast-time ease-out
+      &:hover
+        transform: rotate(360deg)

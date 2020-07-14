@@ -1,0 +1,26 @@
+%header
+  width: 100%
+  text-align: center
+
+%wrapper
+  width: $section-wrapper-width
+  margin: 0 auto
+
+=auto-grid-columns($minWidth)
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax($minWidth, 1fr))
+
+=rect($backgroundColor)
+  width: $section-rect-width
+  height: $section-rect-height
+  background: $backgroundColor
+
+=flex($justifyContent, $alignItems)
+  display: flex
+  flex-wrap: wrap
+  align-items: $alignItems
+  justify-content: $justifyContent
+
+=upperCaseFont($fontName, $fontSize)
+  font: $fontSize $fontName, sans-serif
+  text-transform: uppercase

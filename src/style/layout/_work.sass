@@ -1,0 +1,33 @@
+.work 
+  display: grid
+  grid-template-columns: repeat(4, 1fr) 
+  &__item
+    position: relative
+    &-image
+      height: $work-item-image-height
+      width: $work-item-image-width
+    &:nth-child(3)
+      grid-row: 1 / span 2
+      grid-column-start: 3
+    &-overlay
+      position: absolute
+      opacity: 0
+      top: 0
+      +flex(center, center)
+      width: $work-item-overlay-width
+      height: $work-item-overlay-height
+      flex-direction: column
+      transition: $transition-slow-time ease-out
+      visibility: hidden
+      background: $gradient-background
+      color: $light-text-color
+      &-header
+        +upperCaseFont(Montserrat, $small-header-size)
+        margin: $tiny-indent-size 0
+      &-text 
+        font: $small-text-size 'Roboto Light', sans-serif
+      &-icon
+        margin-top: $normal-indent-size
+    &:hover &-overlay
+      opacity: 1
+      visibility: visible

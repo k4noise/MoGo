@@ -1,0 +1,55 @@
+.slider 
+  position: relative
+  height: $slider-height
+  background-color: $light-grey-background-color
+  &__wrapper
+    +flex(space-evenly, center)
+    @extend %wrapper
+    height: $slider-wrapper-height
+    width: $slider-wrapper-width
+    padding-left: $small-indent-size
+    &-slide
+      grid-template-columns: 1fr auto
+      grid-column-gap: $normal-indent-size
+      align-items: center
+      margin: 0 $medium-indent-size
+      &[data-is-open='true']
+        display: grid
+      &[data-is-open='false']
+        display: none
+      &[data-slide='next']
+        animation-duration: $transition-slow-time
+        animation-name: slide-next
+      &[data-slide='prev']
+        animation-duration: $transition-slow-time
+        animation-name: slide-prev
+      &-close
+        display: none
+      &-image, &-avatar
+        grid-row: 1 / span 2
+        margin: 0 auto
+      &-image
+        padding: $slider-icon-padding
+        border: $bold-border-width solid $mint-border-color
+      &-quote
+        width: $slider-quote-width
+        margin-top: $normal-indent-size
+        margin-left: $normal-indent-size
+        margin-right: 0
+        margin-bottom: 0
+        font: $regular-text-size 'Roboto Light', sans-serif
+        line-height: $medium-line-height
+        color: $gray-text-color
+        &::after, &::before
+          content: '"'
+      &-author
+        margin-left: $normal-indent-size
+        margin-top: $tiny-indent-size
+        font: $regular-text-size 'Kaushan Script', sans-serif
+        &::before
+          position: relative
+          bottom: $slider-rect-bottom
+          +rect($scarlet-background-color)
+          display: inline-block
+          margin-right: $small-indent-size
+          content: ''

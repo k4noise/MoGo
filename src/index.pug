@@ -1,0 +1,139 @@
+include pug/common/_data.pug
+include pug/common/_mixins.pug
+doctype html
+html(lang='zxx')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    title MoGo
+  body
+    header.header
+      .header__wrapper 
+        .header__wrapper-logo MoGo 
+        nav.header__wrapper-nav
+          each navItem in topHeaderNavItems
+            if (navItem.includes('/')) 
+              a.header__wrapper-nav-link(href='#')
+                img.header__wrapper-nav-link-icon(src= navItem alt="icon")
+            else 
+              a.header__wrapper-nav-link(href=`#${navItem}`)= navItem
+        button.header__wrapper-nav-button(class= 'header__wrapper-nav-button-close') &#8801;
+      .header__container
+        .header__container-text-italic Creative Template
+        .header__container-text-header Welcome to MoGo   
+        .header__container-rect
+        a.header__container-button-link(href= '#Contact')
+          button.header__container-button Learn More
+      nav.navigation
+        each navItem in bottomHeaderNavItems
+          a.navigation__link(href=`#${navItem.text}`)
+            strong.navigation__link-strong= navItem.number < 10 ? '0' + navItem.number : navItem.number
+            |  #{navItem.text}
+    main
+      article
+        section.section(class= 'section-1' id= 'About')
+          .section__wrapper
+            +sectionHeaders('What we do', 'Story about us')
+              .section__wrapper-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              .gallery
+                +storyGallery('img/team.png', 'img/users.png', 'Super Team')
+                +storyGallery('img/team2.png', 'img/users.png', 'Super Team')
+                +storyGallery('img/team3.png', 'img/users.png', 'Super Team')
+          .statistics
+            each information in statistics
+              +statisticsItem(information.number, information.text)
+        section.section(class= 'section-2' id= 'Service')
+          .section__wrapper
+            +sectionHeaders('We work with', 'Amazing services')
+              .gallery
+                each service in services 
+                  +textGallery(service.iconPath, service.header, service.text)
+        section.section(class= 'section-3')
+          .section__wrapper
+            +sectionHeaders('For all devices', 'Unique design')
+              img.section__image-1(src= 'img/display1.png' alt= 'tablet picture')
+              img.section__image-2(src= 'img/display2.png' alt= 'phone picture')
+        section.section(class= 'section-4' id= 'Intro')
+          .section__wrapper
+            +sectionHeaders('Service', 'What we do')
+              .section__wrapper-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              .information
+                img.information__image(src= "img/doit.png", alt="people")
+                .information__accordeon 
+                  +accordeonItem('img/photo.png', 'Photography', accordeonText, true)
+                  +accordeonItem('img/creative.png', 'Creativity', accordeonText)
+                  +accordeonItem('img/target.png', 'Web design', accordeonText)
+          .slider
+            .slider__wrapper  
+              img.slider__wrapper-button-left(src= 'img/arrowleft.png' alt='arrow left')
+              each slide in firstSlider
+                +sliderImageItem(slide.isOpened, slide.iconSrc, slide.text, slide.author)
+              img.slider__wrapper-button-right(src= 'img/arrowright.png' alt= 'arrow right')
+        section.section(class= 'section-5')
+          .section__wrapper 
+            +sectionHeaders('Who we are', 'Meet our team')
+                .section__wrapper-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                .gallery  
+                  +teamGallery('img/people1.png', 'Matthew Dix', 'Graphic Design')
+                  +teamGallery('img/people2.png', 'Christopher Campbell', 'Branding/UX design')
+                  +teamGallery('img/people3.png', 'Michael Fertig', 'Developer')
+          .companies
+            .companies__wrapper
+              - for (let i = 1; i <= 6; i++)
+                img.companies__wrapper-logo(src= `img/logo${i}.png` alt= 'logo')
+        section.section(class= 'section-6' id= 'Work')  
+          .section__wrapper
+            +sectionHeaders('What we do', 'Some of our work')
+              .section__wrapper-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          .work
+            - for (let i = 1; i <=7; i++) 
+              +workItem(`img/work${i}.png`, 'img/picture.png', 'Creatively designed', 'Lorem ipsum dolor sit')
+          .slider
+            .slider__wrapper  
+              img.slider__wrapper-button-left(src= 'img/arrowleft.png' alt='arrow')
+              each slide in twelveSlider
+                +sliderAvatarItem(slide.isOpened, slide.iconSrc, slide.text, slide.author)
+              img.slider__wrapper-button-right(src= 'img/arrowright.png' alt= 'arrow')
+        section.section(class= 'section-7')
+          .section__wrapper
+            +sectionHeaders('Happy clients', 'What people say')
+            .gallery
+              each client in clients
+                +clientsGallery(client.avatarPath, client.name, client.position, client.text)
+        section.section(class= 'section-8' id= 'Blog')
+          .section__wrapper
+            +sectionHeaders('Our stories', 'Latest blog')
+              .blog
+                each blogItem in blogItems
+                  +blogItem(blogItem.previewSrc, blogItem.day, blogItem.month, blogItem.header, blogItem.text, blogItem.watch, blogItem.comment)
+        section.section(class= 'section-9')
+          img.section__icon(src= 'img/pin.png' alt= 'pin')
+          .section__header Open map
+          .section__rect
+    footer.footer(id= 'Contact')
+      .footer__wrapper
+        .about
+          .about__logo MoGo
+          .about__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          .about__followers
+            span.about__followers-number 15k 
+            |followers
+          .social
+            each sociaIlcon in socialFooterIcons
+              img.social__icon(src= sociaIlcon alt= 'social network')
+          .send
+            input.send__input(type= 'email' placeholder= 'Your email...')
+            button.send__button Subscribe
+        .records
+          .records__title Blog
+          +footerRecord('img/footer_blog1.png', 'Lorem ipsum dolor sit amet, consecteur adipiscing', 'Jan 9, 2016')
+          +footerRecord('img/footer_blog2.png', 'Consectetur adipiscing elit, sed do eiusmod tempor', 'Jan 9, 2016')
+          +footerRecord('img/footer_blog3.png', 'sed do eiusmod tempor incididunt ut labore', 'Jan 9, 2016')
+        .instagram
+          .instagram__title Instagram
+          .instagram__pictures
+            - for (let i = 1; i <= 9; i++)
+              img.instagram__pictures-picture(src= `img/insta${i}.png` alt= "instagram")
+          .instagram__text View more photos
+      .footer__copyright &copy; 2016 MoGo free PSD template by 
+        span.footer__copyright-author Laaqiq

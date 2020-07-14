@@ -1,0 +1,114 @@
+.section
+  &__rect, &__wrapper-rect
+    +rect($scarlet-background-color)
+    margin: auto
+    margin-bottom: $normal-indent-size
+  &__header
+    color: $scarlet-text-color
+    +upperCaseFont('Montserrat Bold', $regular-header-size)
+    margin-top: $tiny-indent-size
+    margin-bottom: $small-indent-size
+  &__wrapper 
+    @extend %wrapper
+    &-header
+      &-italic
+        margin: 0 auto
+        padding-top: $normal-indent-size
+        font: $regular-header-size 'Kaushan Script', sans-serif
+        @extend %header
+      &-bold
+        @extend %header
+        margin-top: $tiny-indent-size
+        margin-bottom: $small-indent-size
+        +upperCaseFont('Montserrat Bold', $medium-text-size)
+    &-text
+      max-width: $section-text-width
+      margin: auto
+      margin-bottom: $large-indent-size
+      font: $small-text-size Roboto, sans-serif
+      color: $gray-text-color
+      line-height: $medium-line-height
+      text-align: center
+
+.section-1
+  justify-content: space-between
+
+.section-3
+  background: $transparent-white-background, url(../img/mountains.png) 
+  background-size: cover
+  animation: background $transition-background-time infinite
+  & .section__wrapper
+    height: $section-3-height
+
+.section
+  &__image-1
+    position: relative
+    top: $tiny-indent-size
+    left: $section-image-1-left
+  &__image-2 
+    position: relative
+    top: $large-indent-size
+    left: $section-image-2-left
+    z-index: 2
+
+.section-4
+  & .section__wrapper
+    margin-top: $small-indent-size
+    &-text
+      margin-bottom: $large-indent-size
+
+.section-5 
+  justify-content: space-between
+  & .section__wrapper-text 
+    margin-bottom: $large-indent-size
+  & .gallery
+    &__putted
+      height: $section-5-putted-gallery-height
+    &__elem
+      padding-right: 0
+      &-text
+        display: block
+        margin: auto
+        font: $small-text-size 'Roboto Light'
+        text-align: center
+
+.section-6
+  & .slider 
+    height: $section-6-slider-height
+    &__wrapper
+      justify-content: space-evenly
+      &-slide
+        margin-right: $normal-indent-size
+        margin-bottom: $small-indent-size
+        grid-column-gap: 0
+        &-avatar
+          margin-right: $tiny-indent-size
+          margin-left: $normal-indent-size
+
+.section-7
+  background: $transparent-white-background ,url(../img/mountains2.png)
+  background-size: cover
+  animation: background $transition-background-time infinite
+  & .gallery
+    justify-content: space-around
+    grid-template-columns: repeat(auto-fit, minmax($section-7-gallery-elem-width, 1fr))
+    margin-top: $medium-indent-size
+    &__elem
+      padding-right: 0
+      &-avatar
+        top: -$regular-indent-size
+      &-text
+        max-width: $section-7-gallery-text-width
+        font-size: $small-text-size
+        line-height: $medium-line-height
+        &-header
+          margin-bottom: $small-indent-size
+
+.section-9
+  +flex(center, center)
+  flex-direction: column
+  height: $section-9-height
+  background: $transparent-white-background, url(../img/map.png)
+  animation: background $transition-background-time infinite
+  & .section__rect
+    margin: 0

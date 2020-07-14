@@ -1,0 +1,79 @@
+.gallery
+  +auto-grid-columns($gallery-overlay-width)
+  margin-bottom: $regular-indent-size
+  &__putted
+    height: $gallery-putted-height
+    margin: auto auto $normal-indent-size
+    background: $mint-background-color
+    &-image
+      position: absolute
+      width: $gallery-putted-image-width
+    &-overlay
+      width: $gallery-putted-image-width
+      height: $gallery-overlay-height
+      +flex(center, center)
+      flex-direction: column
+      +upperCaseFont(Montserrat, $normal-header-size)
+      color: $light-text-color
+      background: $gradient-background
+      &-image
+        display: block
+        margin-bottom: $tiny-indent-size
+        padding-top: $small-indent-size
+      &-social
+        display: none
+        &-icon  
+          position: relative
+          top: $gallery-social-icon-top
+          &-link
+            width: $gallery-social-icon-width
+            height: $gallery-social-icon-height
+            display: block
+            border-right: $thin-border-width solid $scarlet-text-color
+            text-align: center
+            background: $hover-link-color
+            transition: $transition-fast-time ease-out
+            &:last-child
+              border-right: none
+            &:hover
+              background: $scarlet-background-color
+              & .gallery__putted-overlay-social-icon
+                filter: $gallery-social-icon-filter
+  &__elem
+    margin: auto
+    padding-right: $normal-indent-size
+    padding-bottom: $medium-indent-size
+    &-avatar
+      position: relative
+      top: -$medium-indent-size
+      margin-right: $normal-indent-size
+    &-icon
+      position: relative
+      padding: $normal-indent-size
+    &-rect
+      +rect($scarlet-background-color)
+      margin-bottom: $small-indent-size
+    &-text
+      max-width: $gallery-text-width
+      display: inline-block
+      font: $small-text-size Roboto, sans-serif
+      line-height: $medium-line-height
+      color: $gray-text-color
+      &-header
+        display: block
+        margin-bottom: $small-indent-size
+        +upperCaseFont(Montserrat, $small-header-size)
+        color: $dark-text-color
+      &-title 
+        font: $small-header-size 'Roboto Light', sans-serif
+        margin-bottom: $normal-indent-size
+  &__picture
+    height: $gallery-picture-height
+    transition: $transition-slow-time ease-out
+    &:hover
+      transform: $slider-transform
+      transition: $transition-slow-time ease-out
+      & .gallery__putted-overlay-social
+        display: flex
+      & .gallery__putted-overlay
+        position: relative

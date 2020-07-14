@@ -1,0 +1,46 @@
+.blog
+  +flex(space-between, flex-start)
+  flex-wrap: wrap
+  margin-top: $medium-indent-size
+  margin-bottom: $medium-indent-size
+  &__elem
+    position: relative
+    margin: auto
+    &-date
+      position: absolute
+      top: $blog-elem-date-top
+      left: -$small-indent-size
+      padding: $tiny-indent-size $small-indent-size
+      background: $mint-background-color
+      color: $light-text-color
+      text-align: center
+      &-day
+        font: $mesial-header-size 'Montserrat Bold', sans-serif
+      &-month
+        padding-bottom: $tiny-indent-size
+        font: $small-text-size 'Roboto Light', sans-serif
+    &-header
+      margin: $normal-indent-size 0 $small-indent-size
+      +upperCaseFont(Montserrat, $small-header-size)
+    &-text
+      max-width: $blog-text-width
+      margin-bottom: $small-indent-size
+      font: $small-text-size Roboto, sans-serif
+      color: $gray-text-color
+      line-height: $medium-line-height
+    &-indicator
+      display: flex
+      padding-top: $small-indent-size
+      border-top: $thin-border-width solid $gray-text-color
+      font: $small-text-size 'Roboto Light', sans-serif
+      color: $gray-text-color
+      &-watch
+        &::before
+          content: url(../img/watch.png)
+          margin-right: $tiny-indent-size
+      &-comment
+        position: absolute
+        left: $large-indent-size
+        &::before
+          content: url(../img/comment.png)
+          margin-right: $bold-border-width

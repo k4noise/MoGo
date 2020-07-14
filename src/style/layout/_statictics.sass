@@ -1,0 +1,21 @@
+.statistics 
+  max-width: $statistics-width
+  +flex(center, flex-start)
+  margin-bottom: $small-indent-size
+  margin-top: $normal-indent-size
+  background: $mint-background-color
+  &__info
+    +flex(center, center)
+    flex-direction: column
+    width: $statistics-info-width
+    height: $statistics-info-height
+    border-right: $thin-border-width solid rgba(255, 255, 255, .3)
+    color: $light-text-color
+    &:first-child
+      border-left: $thin-border-width solid rgba(255, 255, 255, .3)
+    &-number
+      font: bold $big-header-size Montserrat, sans-serif
+    &-text
+      margin-top: $small-indent-size  
+      margin-bottom: $small-indent-size
+      +upperCaseFont(Montserrat, $small-text-size)

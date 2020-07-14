@@ -1,0 +1,100 @@
+mixin sectionHeaders(firstTitle, secondTitle, numberOfSection)
+  h3.section__wrapper-header-italic= firstTitle
+  h2.section__wrapper-header-bold= secondTitle
+  .section__wrapper-rect
+  block
+
+mixin storyGallery(imageSrc, iconSrc, text)
+            .gallery__putted
+              .gallery__picture
+                img.gallery__putted-image(src= imageSrc alt= 'our photo')
+                .gallery__putted-overlay 
+                  img.gallery__putted-overlay-image(src= iconSrc alt= 'icon')
+                  |#{text}
+
+mixin teamGallery(imageSrc, name, position)
+  .gallery__elem
+      .gallery__putted
+        .gallery__picture
+          img.gallery__putted-image(src= imageSrc alt= 'team member photo')
+          .gallery__putted-overlay 
+            .gallery__putted-overlay-social
+              each social in ['facebook', 'twitter', 'pinterest', 'instagram']
+                a.gallery__putted-overlay-social-icon-link(href= `${social}.com`)
+                  img.gallery__putted-overlay-social-icon(src= `img/${social}.png` alt= 'social icon')          
+      .gallery__elem-text
+        span.gallery__elem-text-header= name
+        |#{position}    
+
+mixin textGallery(iconSrc, header, text)
+  .gallery__elem  
+    img.gallery__elem-icon(src= iconSrc alt= header+' icon')
+    .gallery__elem-text
+      span.gallery__elem-text-header= header
+      |#{text}
+
+mixin clientsGallery(imageSrc, name, position, text)
+  .gallery__elem
+    img.gallery__elem-avatar(src= imageSrc alt= 'avatar')
+    .gallery__elem-text 
+      span.gallery__elem-text-header= name
+      .gallery__elem-text-title= position
+      .gallery__elem-rect
+      |#{text}
+
+mixin sliderImageItem(isOpened, imageSrc, quote, author)
+  .slider__wrapper-slide(data-is-open= isOpened ? 'true' : 'false')
+    img.slider__wrapper-slide-image(src= imageSrc alt= imageSrc.slice(imageSrc.indexOf('/') + 1, imageSrc.indexOf('.')))
+    blockquote.slider__wrapper-slide-quote= quote
+    p.slider__wrapper-slide-author= author
+
+mixin sliderAvatarItem(isOpened, avatarSrc, quote, author)
+  .slider__wrapper-slide(data-is-open= isOpened ? 'true' : 'false')
+    img.slider__wrapper-slide-avatar(src= avatarSrc alt= avatarSrc.slice(avatarSrc.indexOf('/') + 1, avatarSrc.indexOf('.')))
+    blockquote.slider__wrapper-slide-quote= quote
+    p.slider__wrapper-slide-author= author
+
+mixin statisticsItem(number, text)
+  .statistics__info 
+    .statistics__info-number= number
+    .statistics__info-text= text
+
+
+mixin accordeonItem(iconSrc, header, text, isOpened)
+  .information__accordeon-details
+    if isOpened
+      .information__accordeon-title(class= 'information__accordeon-title-down information__accordeon-title-up')
+        img.information__accordeon-title-icon(src= iconSrc alt= 'down arrow icon')
+        |#{header}
+      .information__accordeon-text(class= 'information__accordeon-text-open')= text
+    else
+      .information__accordeon-title(class= 'information__accordeon-title-down')
+        img.information__accordeon-title-icon(src= iconSrc alt= 'up arrow icon')
+        |#{header}
+      .information__accordeon-text= text
+
+mixin workItem(imageSrc, iconSrc, header, text)
+  .work__item 
+    img.work__item-image(src= imageSrc alt= header)
+    .work__item-overlay 
+      img.work__item-overlay-icon(src= iconSrc alt= 'icon')
+      .work__item-overlay-header= header
+      .work__item-overlay-text= text
+
+mixin blogItem(pictureSrc, day, month, header, text, watch, comment)
+  .blog__elem
+    img.blog__picture(src= pictureSrc alt= 'blog picture')
+    .blog__elem-date  
+      .blog__elem-date-day= day
+      .blog__elem-date-month= month
+    .blog__elem-header= header
+    .blog__elem-text= text
+    .blog__elem-indicator
+      .blog__elem-indicator-watch= watch
+      .blog__elem-indicator-comment= comment
+
+mixin footerRecord(imageSrc, header, date)
+  .records__item
+    img.records__item-image(src= imageSrc alt= 'record image')
+    .records__item-title= header
+      .records__item-date= date

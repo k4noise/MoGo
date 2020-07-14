@@ -1,0 +1,106 @@
+// html, body
+//   overflow-x: hidden
+  
+body 
+  color: $dark-text-color
+  
+.header
+  display: grid
+  align-content: space-between
+  height: $header-height
+  color: $light-text-color
+  background: $gradient-background, url(../img/main.png)
+  animation: background $transition-background-time infinite
+  &__wrapper 
+    +flex(space-between, center)
+    @extend %wrapper
+    padding-top: $small-indent-size
+    &-logo
+      font: $medium-text-size 'Montserrat Bold', sans-serif
+    &-nav
+      display: grid
+      grid-template-columns: repeat(7, auto) 
+      gap: $middle-grid-gap
+      text-align: center
+      &-button
+        position: absolute
+        right: 0
+        display: none
+        width: $header-mobile-button-width
+        height: $header-mobile-button-height
+        border: none
+        font-size: $neutral-header-size
+        color: $light-text-color
+        background: transparent
+        &-button-close, &-button-open
+          transition:  $transition-slow-time ease-out
+      &-link
+        display: block
+        padding-top: $small-indent-size
+        border-top: $bold-border-width solid transparent
+        border-bottom: $bold-border-width solid transparent
+        +upperCaseFont(Montserrat, $small-header-size)
+        color: $light-text-color
+        &:hover
+          border-bottom: $bold-border-width solid $hover-link-color
+          color: $hover-link-color
+          transition: $transition-fast-time ease-out
+  &__container
+    +flex(flex-start, center)
+    flex-direction: column
+    height: $header-container-height
+    text-align: center
+    &-text
+      &-header
+        max-width: $header-text-width
+        +upperCaseFont('Montserrat Bold', $very-big-header-size)
+        line-height: $normal-line-height
+      &-italic
+        position: relative
+        margin-bottom: $tiny-indent-size
+        font: $big-header-size 'Kaushan Script', sans-serif
+        line-height: $normal-line-height
+    &-rect
+      +rect($light-background-color)
+      margin-top: $medium-indent-size
+    &-button
+      width: $header-button-width
+      height: $header-button-height
+      margin-top: $medium-indent-size
+      border: $bold-border-width solid $light-border-color
+      +upperCaseFont(Montserrat, $small-text-size)
+      color: $light-text-color
+      background-color: transparent
+      &:hover
+        background: $light-background-color
+        color: $scarlet-text-color
+      &-link
+        color: inherit
+
+.navigation
+  +flex(space-between, flex-start)
+  @extend %wrapper
+  padding-bottom: $tiny-indent-size
+  &__link
+    display: block
+    width: $header-navigation-link-width
+    padding-top: $small-indent-size
+    padding-bottom: $small-indent-size
+    border-top: $bold-border-width solid $navigation-link-border-color
+    +upperCaseFont(Montserrat, $normal-text-size)
+    color: $navigation-link-text-color
+    &-strong
+      font: $regular-header-size 'Montserrat Bold', sans-serif
+    &:hover
+      position: relative
+      border-color: $light-border-color
+      color: $light-text-color
+      transition:  $transition-slow-time ease-out
+      &::after
+        content: ''
+        position: absolute
+        top: $navigation-rect-top
+        left: 0
+        width: $header-navigation-rect-width
+        height: $section-rect-height
+        background: $scarlet-background-color

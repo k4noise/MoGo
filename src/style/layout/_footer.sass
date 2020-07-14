@@ -1,0 +1,103 @@
+.footer
+  padding-top: $medium-indent-size
+  background-color: $light-grey-background-color
+  &__wrapper  
+    display: grid
+    grid-template-columns: repeat(3, auto)
+    width: $section-wrapper-width
+    margin: auto
+    padding-bottom: $medium-indent-size
+    border-bottom: $thin-border-width solid $light-grey-border-color
+  &__copyright
+    padding-top: $small-indent-size + $tiny-indent-size
+    padding-bottom: $small-indent-size
+    font: $small-text-size Montserrat, sans-serif
+    text-align: center
+    &-author
+      color: $scarlet-text-color
+
+.about
+  &__logo 
+    margin-bottom: $tiny-indent-size
+    font: $neutral-header-size 'Montserrat Bold', sans-serif
+    color: $gray-text-color
+  &__description
+    max-width: $footer-about-description-width 
+    margin-bottom: $regular-indent-size
+    font: $small-text-size Roboto, sans-serif
+    line-height: $medium-line-height
+    color: $gray-text-color
+  &__followers
+    margin-bottom: $small-indent-size
+    font: $small-text-size Montserrat, sans-serif
+    &-number
+      font: $normal-text-size 'Montserrat Bold', sans-serif
+
+.social
+  width: $footer-social-width
+  +flex(space-between, center)
+  margin-bottom: $normal-indent-size
+  padding: $small-indent-size 0 $tiny-indent-size
+  border-top: $thin-border-width solid $light-grey-border-color
+  &__icon
+    padding-right: $small-indent-size
+  &::before
+    content: 'Follow Us:'
+    margin-right: $normal-indent-size
+    font: $small-text-size 'Roboto Light', sans-serif
+
+.send
+  display: flex
+  &__input
+    width: $footer-send-input-width
+    height: $footer-send-input-height
+    padding: $small-indent-size
+    border: $thin-border-width solid $grey-border-color
+    font: $small-text-size 'Roboto Light', sans-serif
+    color: $gray-text-color
+  &__button
+    width: $footer-send-button-width
+    height: $footer-send-button-height
+    border: none
+    +upperCaseFont(Montserrat, $small-text-size)
+    color: $light-text-color
+    background: $mint-background-color
+
+.records
+  +flex(space-between, flex-start)
+  flex-direction: column
+  padding-top: $tiny-indent-size
+  &__title
+    padding-top: $tiny-indent-size
+    font-size: $small-text-size 
+  &__title, &__item-title 
+    font-family: Montserrat
+    text-transform: uppercase
+  &__item
+    +flex(flex-start, center)
+    &-image
+      margin-right: $small-indent-size
+    &-title
+      max-width: $footer-records-title-width
+      line-height: $medium-line-height
+    &-title, .instagram__title
+      padding-top: $tiny-indent-size
+      font-size: $tiny-text-size
+    &-date
+      margin-top: $tiny-indent-size
+      font: $tiny-text-size 'Roboto Light', sans-serif
+      color: $dark-gray-text-color
+      text-transform: none
+
+.instagram
+  padding-top: $small-indent-size
+  &__title
+    +upperCaseFont(Montserrat, $small-header-size)
+    margin-bottom: $normal-indent-size
+  &__pictures
+    display: grid
+    grid-template-columns: repeat(3, $footer-instagram-pictures-width)
+    grid-gap: $little-grid-gap
+  &__text
+    margin-top: $small-indent-size
+    font: $tiny-text-size 'Roboto Light', sans-serif

@@ -1,0 +1,259 @@
+@media (max-width: $breakpoint-large) 
+  .header
+    height: $header-media-large-height
+    &__wrapper
+      &-logo
+        margin: auto
+      &-nav
+        margin: auto
+
+  .navigation
+    width: $header-navigation-media-width
+    &__link
+      width: $header-navigation-link-media-width
+
+  .section__image
+    &-1
+      display: block
+    &-2
+      display: none
+
+  .slider
+    &__wrapper
+      width: $slider-wrapper-media-width
+      padding: 0
+      &-slide
+        &-avatar
+          width: $slider-wrapper-slide-avatar-media-width
+          margin-left: 0
+        &, .section-6 &
+          margin: 0
+          &-quote
+            width: $slider-quote-small-media-width
+            margin-left: $tiny-indent-size
+      &-button
+        &-left, &-right
+          padding: 0
+
+  .header__wrapper, .section__wrapper,
+    width: $section-wrapper-small-media-width
+
+  .information__image
+    width: $information-image-media-width
+
+  .companies
+    &__wrapper
+      justify-content: space-evenly
+      width: $companies-wrapper-media-width
+    &-logo
+      padding: $small-indent-size
+
+  .blog
+    margin-bottom: $normal-indent-size
+    &__elem
+      margin-bottom: $normal-indent-size
+
+  .footer__wrapper
+    grid-row-gap: $normal-indent-size
+    grid-template-columns: auto auto
+    width: $footer-wrapper-media-width
+
+  .about
+    grid-column: 1 / span 2
+
+
+@media (max-width: $breakpoint-medium) 
+  body
+    font-size: $regular-text-size
+
+  .header__wrapper, .section__wrapper
+    width: $header-wrapper-media-width
+    margin-bottom: 0
+    
+  .header
+    height: $header-media-height
+    min-height: $header-media-small-height
+    &__wrapper
+      &-logo
+        margin: auto
+        font-size: $neutral-header-size
+      &-nav
+        position: absolute
+        left: 0
+        z-index: 2
+        display: none
+        grid-template-columns: auto
+        grid-column-gap: 0
+        width: $header-wrapper-nav-media-width
+        margin-top: $header-nav-media-top
+        background: $gradient-background
+        &-button-close, &-button-open
+          display: block
+    &__container
+      justify-content: space-around
+      height: $header-container-media-height
+      &-rect, &-button
+        margin-top: $normal-indent-size
+      &-text
+        &-italic
+          margin-bottom: 0
+          font-size: $mesial-header-size
+        &-header
+          font-size: $huge-header-size
+    &__link
+      width: $header-navigation-link-media-width
+  .section
+    &__image-2
+      top: $small-indent-size
+    &__wrapper
+      &-header
+        &-bold
+          font-size: $mesial-header-size
+        &-italic
+          padding-top: $normal-indent-size
+
+  .statistics
+    &__info
+      width: $statistics-info-media-width
+      height: $statistics-info-media-height
+      border: none
+      &:first-child
+        border: none
+
+  .information
+    margin-bottom: $normal-indent-size
+    grid-template-columns: none
+    &__image
+      width: $information-image-media-large-width
+      margin: auto
+      margin-bottom: $normal-indent-size
+
+  .section-3 
+    overflow: hidden
+    height: $section-3-media-height
+
+  .slider
+    &__wrapper
+      &-slide
+        &-avatar
+          margin: auto
+  .section-7 .gallery__elem-text
+    max-width: $section-7-gallery-text-media-width
+
+  .slider
+    padding-top: $normal-indent-size
+    height: $slider-media-height
+    &__wrapper
+      width: $section-wrapper-media-width
+      &-slide
+        grid-template-columns: none
+        margin: 0
+        &-quote
+          width: $slider-quote-media-width
+        &-image, .section-6 &-avatar
+          margin: auto
+
+  .work
+    grid-template-columns: repeat(2, 1fr)
+    &__item
+      margin-bottom: -$tiny-indent-size
+      &:nth-child(3)
+        grid-column-start: 2
+
+  .companies
+    &__wrapper
+      top: 0 
+      width: $section-wrapper-media-width
+
+  .blog
+    &__elem
+      margin: 0 auto $small-indent-size
+    &__picture
+      width: $blog-picture-media-width
+      margin-bottom: $small-indent-size
+
+  .footer__wrapper
+    grid-template-columns: none
+
+  .about
+    grid-column: 1
+
+  .records__title
+    margin-bottom: $normal-indent-size
+
+
+@media ( max-width: $breakpoint-small)
+  .header__wrapper, .section__wrapper
+    width: $section-wrapper-media-width
+  .header
+    height: $header-media-medium-height
+    &__container-text-header
+      font-size: $massive-header-size
+  .navigation
+    justify-content: space-around
+    &__link
+      width: $header-navigation-link-media-width
+  .gallery
+    padding-bottom: 0
+    margin-left: 0
+    grid-template-columns: repeat(auto-fit, 100vw)
+    &__elem
+      padding-right: 0
+      &-text
+        max-width: $gallery-text-media-width
+  .information__accordeon
+    padding: 0 $tiny-indent-size
+  .section-3
+    height: $section-3-small-media-height
+  .section__image
+    &-1
+      display: none
+    &-2
+      display: block
+      left: $section-image-2-center-left
+  .slider
+    &__wrapper
+      padding: 0
+  .section-6 .slider, .slider
+      height: auto
+  .section
+    &__wrapper
+      &-text
+        padding: 0 $small-indent-size
+  .companies__wrapper-logo
+    padding: $normal-indent-size
+
+  .blog
+    &__picture
+      width: 100vw
+    &__elem
+      text-align: center
+      &-date
+        position: static
+      &-indicator
+        padding-left: $small-indent-size
+
+  .send__input 
+    width: $footer-send-input-media-width
+  
+  .about__description 
+    max-width: $footer-about-description-media-width
+
+  .footer__wrapper
+    width: $footer-wrapper-media-width
+    padding-right: 0
+
+  .section-7 .gallery
+    align-items: center
+    justify-content: flex-start
+    grid-template-columns: repeat(auto-fit, 100vw)
+    &__elem
+      width: $section-7-gallery-elem-media-width
+
+  .social
+    width: $footer-social-media-width
+    &::before
+      margin-right: $footer-social-before-margin-right
+      margin-bottom: $tiny-indent-size
+  .send__button
+    width: $footer-send-button-media-width
